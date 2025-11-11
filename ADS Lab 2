@@ -1,0 +1,45 @@
+//sort matrix in increasing order
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+const int N = 3;
+
+void sortAllway(int arr[N][N]) {
+    vector<int> elements;
+
+    //flatten matrix into vector
+    for (int i = 0; i < N; ++i)
+        for (int j = 0; j < N; ++j)
+            elements.push_back(arr[i][j]);
+
+    //sort the vector
+    sort(elements.begin(), elements.end());
+
+    //fill back into matrix
+    int index = 0;
+    for (int i = 0; i < N; ++i)
+        for (int j = 0; j < N; ++j)
+            arr[i][j] = elements[index++];
+}
+
+int main() {
+    int arr[N][N] = {
+        {1, 2, 3},
+        {2, 5, 4},
+        {9, 4, 7}
+    };
+
+    sortAllway(arr);
+
+    //print the sorted matrix
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j)
+            cout << arr[i][j] << " ";
+        cout << '\n';
+    }
+
+    return 0;
+}
