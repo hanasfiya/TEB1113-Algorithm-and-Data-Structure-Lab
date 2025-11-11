@@ -1,4 +1,4 @@
-//sort matrix in increasing order
+//sort matrix in ascending order
 
 #include <iostream>
 #include <vector>
